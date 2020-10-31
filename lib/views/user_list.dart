@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:notepad/components/user_tile.dart';
-import 'package:notepad/models/user.dart';
 import 'package:notepad/provider/users.dart';
+import 'package:notepad/routes/app_routes.dart';
 import 'package:provider/provider.dart';
 
 class UserList extends StatelessWidget {
@@ -15,7 +15,9 @@ class UserList extends StatelessWidget {
           centerTitle: true,
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pushNamed(AppRoutes.USER_FORM);
+          },
           child: Icon(Icons.person_add),
         ),
         body: ListView.builder(
