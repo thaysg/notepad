@@ -52,10 +52,30 @@ class UserForm extends StatelessWidget {
               ),
               TextFormField(
                 decoration: InputDecoration(labelText: 'Telefone'),
+                keyboardType: TextInputType.number,
+                validator: (value) {
+                  if (value == null || value.trim().isEmpty) {
+                    return 'Favor preencher campo';
+                  }
+                  if (value.trim().length < 9 || value.length <= 9) {
+                    return 'Telefone Inválido';
+                  }
+                  return null;
+                },
                 onSaved: (value) => _formData['phone'] = value,
               ),
               TextFormField(
                 decoration: InputDecoration(labelText: 'E-mail'),
+                keyboardType: TextInputType.emailAddress,
+                validator: (value) {
+                  if (value == null || value.trim().isEmpty) {
+                    return 'Favor preencher campo';
+                  }
+                  if (value.trim().length < 5 || value.length <= 5) {
+                    return 'Nome muito curto';
+                  }
+                  return null;
+                },
                 onSaved: (value) => _formData['email'] = value,
               ),
               TextFormField(
